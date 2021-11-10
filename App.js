@@ -2,7 +2,7 @@
 import React from 'react';
 import { AppearanceProvider } from 'react-native-appearance';
 import ProfileProvider from './src/providers/ProfileProvider';
-import Routing from './src/routes/Routing';
+import Routing from './src/routes/MainRouting';
 import ThemeProvider from './src/providers/ThemeProvider';
 
 export default App = () => {

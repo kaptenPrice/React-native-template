@@ -9,7 +9,6 @@ import { useProfile } from '../providers/ProfileProvider';
 import AboutScreen from '../screens/AboutScreen';
 import HelpScreen from '../screens/HelpScreen';
 import BottomTabBar from './BottomTabBar';
-import SettingStackScreen from './stacks/SettingStackScreen';
 
 const DrawerBar = () => {
 	const Drawer = createDrawerNavigator();
