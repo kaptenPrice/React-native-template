@@ -19,7 +19,7 @@ export const Theme: Record<'appDarkTheme' | 'appDefaultTheme', ThemeType> = {
 		dark: false,
 		colors: {
 			primary: '#453F36',
-			background: '#ff0000',
+			background: '#ffffff',
 			card: '#D6D6FF',
 			text: '#161313',
 			border: '#161313',

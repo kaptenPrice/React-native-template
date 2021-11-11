@@ -11,11 +11,11 @@ const BottomTabBar = () => {
 		<>
 			<Tab.Navigator screenOptions={{ headerShown: false }}>
 				<Tab.Screen
-					name="Home"
+					name="HomeStack"
 					component={HomeStackScreen}
 					initialParams={{ post: 42 }}
 				/>
-				<Tab.Screen name="Settings" component={SettingStackScreen} />
+				<Tab.Screen name="SettingsStack" component={SettingStackScreen} />
 			</Tab.Navigator>
 		</>
 	);

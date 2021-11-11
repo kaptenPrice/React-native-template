@@ -1,34 +1,44 @@
-import { Button, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
-
 import AppButton from '../comp/AppButton';
 import { useAppTheme } from '../providers/ThemeProvider';
+import DrawerMenuIcon from '../comp/DrawerMenuIcon';
+import { EdgeInsets, useSafeAreaInsets } from 'react-native-safe-area-context';
 
 const HelpScreen = ({ navigation }) => {
 	const { appTheme } = useAppTheme();
-	const styles = makeStyle(appTheme.colors);
+	const insets = useSafeAreaInsets();
+
+	const styles = makeStyle(appTheme.colors, insets);
 	return (
-		<View style={styles.container}>
-			<Text style={{ color: 'red' }}>Help</Text>
-			<AppButton
-				buttonStyle={styles.buttonStyle}
-				onPress={() => navigation.navigate('AboutScreen')}
-				textStyle={styles.titleStyle}
-				title="Go to About"
-			/>
-		</View>
+		<>
+		
+			<DrawerMenuIcon onPress={() => navigation.openDrawer()} />
+		
+			<View style={styles.container}>
+				<Text style={{ color: 'red' }}>Help</Text>
+				<AppButton
+					buttonStyle={styles.buttonStyle}
+					onPress={() => navigation.navigate('AboutScreen')}
+					textStyle={styles.titleStyle}
+					title="Go to About"
+				/>
+			</View>
+		</>
 	);
 };
 
 export default HelpScreen;
 
-const makeStyle = (colors: any) =>
+const makeStyle = (colors: any, insets:EdgeInsets) =>
 	StyleSheet.create({
 		container: {
+			paddingTop: insets.top,
+			paddingLeft: insets.left,
+			paddingBottom: insets.bottom,
 			flex: 1,
+			justifyContent: 'space-between',
 			alignItems: 'center',
-			justifyContent: 'space-evenly',
-			flexDirection: 'column',
 		},
 		textStyle: {
 			color: colors.text,

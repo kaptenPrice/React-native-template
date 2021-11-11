@@ -30,6 +30,7 @@ const ThemeProvider = ({ children }: PropsWithChildren<any>) => {
 		} else {
 			setAppTheme(scheme === 'dark' ? appDarkTheme : appDefaultTheme);
 		}
+	
 	}, [scheme]);
 
 	return (

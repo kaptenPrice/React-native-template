@@ -18,6 +18,7 @@ const UnAuthenticatedStackScreen = () => {
 			options: { headerShown: true, title: 'SignUp' },
 			component: SignUpScreen,
 		},
+
 	];
 
 	const mapScreens = () => {
@@ -25,6 +26,7 @@ const UnAuthenticatedStackScreen = () => {
 			<LoginStack.Screen key={index} {...props} />
 		));
 	};
+	
 	return <LoginStack.Navigator>{mapScreens()}</LoginStack.Navigator>;
 };
 

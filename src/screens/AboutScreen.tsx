@@ -4,28 +4,32 @@ import React from 'react';
 import AppButton from '../comp/AppButton';
 import { useAppTheme } from '../providers/ThemeProvider';
 import { ThemeType } from '../types/types';
+import DrawerMenuIcon from '../comp/DrawerMenuIcon';
 
 const AboutScreen = ({ navigation }) => {
 	const { appTheme } = useAppTheme();
-	const styles = makeStyles(appTheme);
-	
-	
+	const styles = makeStyles(appTheme.colors);
+
 	return (
-		<View style={styles.container}>
-			<Text style={{ color: 'red' }}>About</Text>
-			<AppButton
-				buttonStyle={styles.buttonStyle}
-				onPress={() => navigation.navigate('HelpScreen')}
-				textStyle={styles.titleStyle}
-				title="Goto Help"
-			/>
-		</View>
+		<>
+			<DrawerMenuIcon onPress={() => navigation.openDrawer()} />
+			<View style={styles.container}>
+				<Text style={styles.textStyle}>About</Text>
+				<AppButton
+					buttonStyle={styles.buttonStyle}
+					onPress={() => navigation.navigate('HelpScreen')}
+					textStyle={styles.titleStyle}
+					title="Goto Help"
+				/>
+				<AppButton 	buttonStyle={styles.buttonStyle}/>
+			</View>
+		</>
 	);
 };
 
 export default AboutScreen;
 
-const makeStyles = (colors: ThemeType["colors"]) =>
+const makeStyles = (colors: ThemeType['colors']) =>
 	StyleSheet.create({
 		container: {
 			flex: 1,

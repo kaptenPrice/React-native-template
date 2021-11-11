@@ -6,14 +6,14 @@ import { useProfile } from '../providers/ProfileProvider';
 import AppButton from '../comp/AppButton';
 import { useAppTheme } from '../providers/ThemeProvider';
 import { ThemeType } from '../types/types';
+import DrawerMenuIcon from '../comp/DrawerMenuIcon';
 
 const HomeScreen = ({ navigation }: NativeStackScreenProps<any, any>) => {
-	const { setAuthenticatedUser } = useProfile();
 	const { appTheme } = useAppTheme();
 	const styles = makeStyle(appTheme.colors);
 
 	//USE TO SET screen options from outside of routing
-	useLayoutEffect(() => {
+/*	useLayoutEffect(() => {
 		navigation.setOptions({
 			headerLeft: () => (
 				<AppButton
@@ -23,32 +23,39 @@ const HomeScreen = ({ navigation }: NativeStackScreenProps<any, any>) => {
 					title="LOGOUT"
 				/>
 			),
-			// headerRight: () => (
-			// 	<AppButton
-			// 		buttonStyle={styles.buttonStyle}
-			// 		onPress={() => navigation.navigate('DrawerBar')}
-			// 		textStyle={styles.titleStyle}
-			// 		title="Settings"
-			// 	/>
-			// ),
+			headerRight: () => (
+				<AppButton
+					buttonStyle={styles.buttonStyle}
+					onPress={() => navigation.navigate('DrawerBar')}
+					textStyle={styles.titleStyle}
+					title="Settings"
+				/>
+			),
 		});
-	}, [navigation]);
+	}, [navigation]);*/
 
 	return (
-		<View style={styles.container}>
-			<Text style={styles.textStyle}>HomeScreen</Text>
-			<AppButton
-				buttonStyle={styles.buttonStyle}
-				onPress={() =>
-					navigation.navigate('DetailsScreen', {
-						itemId: 88,
-						otherParam: 'Watch her walk away... ',
-					})
-				}
-				textStyle={styles.titleStyle}
-				title="Details"
+		<>
+			<DrawerMenuIcon
+				//@ts-ignore
+				onPress={() => navigation.openDrawer()}
 			/>
-		</View>
+
+			<View style={styles.container}>
+				<Text style={styles.textStyle}>HomeScreen</Text>
+				<AppButton
+					buttonStyle={styles.buttonStyle}
+					onPress={() =>
+						navigation.navigate('DetailsScreen', {
+							itemId: 88,
+							otherParam: 'Watch her walk away... ',
+						})
+					}
+					textStyle={styles.titleStyle}
+					title="Details"
+				/>
+			</View>
+		</>
 	);
 };
 export default HomeScreen;
