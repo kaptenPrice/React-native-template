@@ -11,12 +11,12 @@ import {
 const AppButton = ({
 	title,
 	buttonStyle,
-	textStyle,
+	titleStyle: titleStyle,
 	onPress,
 }: buttonPropTypes) => {
 	return (
 		<Pressable style={buttonStyle} onPress={onPress}>
-			<Text style={textStyle}>{title}</Text>
+			<Text style={titleStyle}>{title}</Text>
 		</Pressable>
 	);
 };
@@ -26,6 +26,6 @@ export default AppButton;
 interface buttonPropTypes extends PressableProps {
 	title?: string;
 	buttonStyle: StyleProp<ViewStyle>;
-	textStyle?: StyleProp<TextStyle>;
+	titleStyle?: StyleProp<TextStyle>;
 	onPress?: () => void;
 }

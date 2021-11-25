@@ -1,4 +1,4 @@
-import { Button, StyleSheet, Text, View } from 'react-native';
+import { Button, SafeAreaView, StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 import { useAppTheme } from '../../providers/ThemeProvider';
 
@@ -8,9 +8,9 @@ const SignUpScreen = () => {
 	const styles = makeStyles(appTheme);
 
 	return (
-		<View style={styles.container}>
+		<SafeAreaView style={styles.container}>
 			<Text style={styles.textStyle}>SignUp</Text>
-		</View>
+		</SafeAreaView>
 	);
 };
 

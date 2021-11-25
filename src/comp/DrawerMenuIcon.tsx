@@ -1,32 +1,40 @@
 import React from 'react';
-import { Dimensions, Pressable, StyleSheet } from 'react-native';
+import { Dimensions,  StyleSheet, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
 const DrawerMenuIcon = ({ onPress }) => {
 	const { width, height } = Dimensions.get('screen');
+	const styles = makeStyle(width, height);
 
 	return (
-		<Pressable
-			style={{
-				height: height * 0.08,
-				width: width * 0.16,
-				marginLeft: width * 0.02,
-				marginVertical: height * 0.03,
-			}}>
+		<View style={styles.container}>
 			<Ionicons
-				style={{
-					paddingHorizontal: width * 0.055,
-					paddingVertical: height * 0.035,
-				}}
+				style={styles.iconStyle}
 				name="md-menu-outline"
 				size={32}
-				color="blue"
+				color="grey"
 				onPress={onPress}
 			/>
-		</Pressable>
+		</View>
 	);
 };
 
 export default DrawerMenuIcon;
 
-const styles = StyleSheet.create({});
+const makeStyle = (height: number, width: number) =>
+	StyleSheet.create({
+		container: {
+			flex: 1,
+			justifyContent: 'center',
+			alignItems: 'center',
+			zIndex: 1000,
+			position: 'absolute',
+			// backgroundColor: 'red',
+		},
+		iconStyle: {
+			paddingHorizontal: width * 0.05,
+			paddingVertical: height * 0.05,
+			opacity:0.4
+			// backgroundColor: 'yellow',
+		},
+	});

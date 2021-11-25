@@ -1,8 +1,11 @@
 import { NativeStackNavigationOptions } from "@react-navigation/native-stack";
+import { Dispatch, SetStateAction } from "react";
+import { NativeScreen } from "react-native-screens";
+import { EndPointType } from "../routes/helper/useFetch";
 
 export type screenPropTypes = {
 	name: string;
-	options?: NativeStackNavigationOptions;
+	options?: NativeStackNavigationOptions ;
 	component: ({ navigation }: { navigation: any }) => JSX.Element;
 };
 export type ThemeType = {
@@ -19,3 +22,16 @@ export type ThemeType = {
 		shadowColor: string;
 	};
 };
+export type UseThemeType = () => {
+	appTheme: ThemeType;
+	setAppTheme: Dispatch<SetStateAction<any>>;
+};
+export type UseFetchType = (
+	endpoint: EndPointType,
+	init?: RequestInit
+) => Promise<{
+	data?: any;
+	status: number;
+	error?: any;
+}>;
+type RequestInit = Parameters<typeof fetch>[1];

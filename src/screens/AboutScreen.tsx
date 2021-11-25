@@ -18,7 +18,7 @@ const AboutScreen = ({ navigation }) => {
 				<AppButton
 					buttonStyle={styles.buttonStyle}
 					onPress={() => navigation.navigate('HelpScreen')}
-					textStyle={styles.titleStyle}
+					titleStyle={styles.titleStyle}
 					title="Goto Help"
 				/>
 				<AppButton 	buttonStyle={styles.buttonStyle}/>

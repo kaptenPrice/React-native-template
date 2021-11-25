@@ -22,6 +22,7 @@ const DrawerBar = () => {
 	return (
 		<Drawer.Navigator
 			initialRouteName="HomeScreen"
+			// defaultScreenOptions={{unmountOnBlur:true}}
 			screenOptions={{ headerShown: false }}
 			drawerContent={(props) => {
 				return (
@@ -30,8 +31,9 @@ const DrawerBar = () => {
 						<DrawerItem label="Logout" onPress={() => handleLogout(props)} />
 					</DrawerContentScrollView>
 				);
-			}}>
-			<Drawer.Screen name="MainScreens" component={BottomTabBar} />
+			}}
+		>
+			<Drawer.Screen name="MainScreens" component={BottomTabBar}  />
 			<Drawer.Screen name="HelpScreen" component={HelpScreen} />
 			<Drawer.Screen name="AboutScreen" component={AboutScreen} />
 		</Drawer.Navigator>

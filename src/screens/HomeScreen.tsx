@@ -1,19 +1,28 @@
-import React, { useEffect, useLayoutEffect } from 'react';
+import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { useProfile } from '../providers/ProfileProvider';
 
 import AppButton from '../comp/AppButton';
 import { useAppTheme } from '../providers/ThemeProvider';
 import { ThemeType } from '../types/types';
 import DrawerMenuIcon from '../comp/DrawerMenuIcon';
+import { DrawerScreenProps } from '@react-navigation/drawer';
+import { useFetch } from '../routes/helper/useFetch';
 
-const HomeScreen = ({ navigation }: NativeStackScreenProps<any, any>) => {
+const HomeScreen = ({
+	navigation,
+}: NativeStackScreenProps<any, any> & DrawerScreenProps<any, any>) => {
 	const { appTheme } = useAppTheme();
 	const styles = makeStyle(appTheme.colors);
 
+const fetchData=async()=>{
+	const {data, status, error} = await useFetch("/login")
+	console.log(data,status, error)
+	//set your data and use it
+
+}
 	//USE TO SET screen options from outside of routing
-/*	useLayoutEffect(() => {
+	/*	useLayoutEffect(() => {
 		navigation.setOptions({
 			headerLeft: () => (
 				<AppButton
@@ -36,11 +45,7 @@ const HomeScreen = ({ navigation }: NativeStackScreenProps<any, any>) => {
 
 	return (
 		<>
-			<DrawerMenuIcon
-				//@ts-ignore
-				onPress={() => navigation.openDrawer()}
-			/>
-
+			<DrawerMenuIcon onPress={() => navigation.openDrawer()} />
 			<View style={styles.container}>
 				<Text style={styles.textStyle}>HomeScreen</Text>
 				<AppButton
@@ -51,7 +56,7 @@ const HomeScreen = ({ navigation }: NativeStackScreenProps<any, any>) => {
 							otherParam: 'Watch her walk away... ',
 						})
 					}
-					textStyle={styles.titleStyle}
+					titleStyle={styles.titleStyle}
 					title="Details"
 				/>
 			</View>
@@ -72,6 +77,7 @@ const makeStyle = (colors: ThemeType['colors']) =>
 			color: colors.text,
 		},
 		buttonStyle: {
+			padding: 15,
 			backgroundColor: colors.buttonBackground,
 			borderRadius: 14,
 			shadowColor: colors.shadowColor,

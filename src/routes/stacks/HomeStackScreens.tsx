@@ -18,6 +18,7 @@ const HomeStackScreen = () => {
 		},
 		{ name: 'HelpScreen', component: HelpScreen },
 	];
+	
 	const mapScreens = () => {
 		return screens.map(({ ...props }, index) => (
 			<HomeStack.Screen key={index} {...props} />

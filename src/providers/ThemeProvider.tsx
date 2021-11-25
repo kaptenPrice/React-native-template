@@ -9,7 +9,7 @@ import React, {
 } from 'react';
 import { useColorScheme } from 'react-native';
 import { Theme } from '../theme/Theme';
-import { ThemeType } from '../types/types';
+import { ThemeType, UseThemeType } from '../types/types';
 
 const ThemeContext = createContext(null);
 
@@ -18,7 +18,7 @@ const ThemeProvider = ({ children }: PropsWithChildren<any>) => {
 	const { appDarkTheme, appDefaultTheme } = Theme;
 	const [appTheme, setAppTheme] = useState<ThemeType | null>(null);
 
-	const changeTheme = (newTheme: 'dark' | 'ligth') => {
+	const changeTheme = (newTheme: 'dark' | 'ligth' ) => {
 		setAppTheme(
 			newTheme === 'dark' ? Theme.appDarkTheme : Theme.appDefaultTheme
 		);
@@ -44,7 +44,3 @@ export default ThemeProvider;
 
 export const useAppTheme: UseThemeType = () => useContext(ThemeContext);
 
-type UseThemeType = () => {
-	appTheme: ThemeType;
-	setAppTheme: Dispatch<SetStateAction<any>>;
-};

@@ -33,7 +33,7 @@ const DetailScreen = ({
 			<AppButton
 				buttonStyle={styles.buttonStyle}
 				onPress={handlePush}
-				textStyle={styles.titleStyle}
+				titleStyle={styles.titleStyle}
 				title="DETAILS ...again"
 			/>
 		</View>

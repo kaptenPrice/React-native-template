@@ -10,9 +10,7 @@ const SettingsScreen = ({ navigation }: NativeStackScreenProps<any, any>) => {
 	const styles = makeStyle(appTheme.colors);
 	const [isEnabled, setIsEnabled] = useState(null);
 
-
-
-	const toggleSwitch = () => setIsEnabled((currentState:boolean) => !currentState);
+	const toggleSwitch = () => setIsEnabled((currentState: boolean) => !currentState);
 
 	useEffect(() => {
 		setAppTheme(!isEnabled ? 'light' : 'dark');
@@ -30,9 +28,15 @@ const SettingsScreen = ({ navigation }: NativeStackScreenProps<any, any>) => {
 			/>
 			<AppButton
 				buttonStyle={styles.buttonStyle}
-				textStyle={styles.titleStyle}
+				titleStyle={styles.titleStyle}
 				title="Go to Details"
 				onPress={() => navigation.navigate('DetailsScreen', { itemId: '' })}
+			/>
+			<AppButton
+				buttonStyle={styles.buttonStyle}
+				titleStyle={styles.titleStyle}
+				title="Scanner"
+				onPress={() => navigation.navigate('ScannerScreen')}
 			/>
 		</View>
 	);
@@ -69,4 +73,3 @@ const makeStyle = (colors: ThemeType['colors']) =>
 			paddingHorizontal: 8,
 		},
 	});
-
