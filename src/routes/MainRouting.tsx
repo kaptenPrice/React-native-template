@@ -3,10 +3,11 @@ import { Platform, SafeAreaView, StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { useProfile } from '../providers/ProfileProvider';
 import { Theme } from '../theme/Theme';
-import UnAuthenticatedStackScreen from './stacks/UnAuthenticatedStackScreens';
+import UnAuthenticatedStack from './stacks/UnAuthenticatedStack';
 import { useAppTheme } from '../providers/ThemeProvider';
-import DrawerBar from './DrawerBar';
+import DrawerBarX from './DrawerBarX';
 import { ThemeType } from '../types/types';
+import MainStack from './stacks/MainStackScreen';
 
 const Routing = () => {
 	const { authenticatedUser } = useProfile();
@@ -19,8 +20,8 @@ const Routing = () => {
 	return (
 		<>
 			<SafeAreaView style={styles.container} />
-			<NavigationContainer theme={dark ? appDarkTheme : appDefaultTheme}>
-				{authenticatedUser ? <DrawerBar /> : <UnAuthenticatedStackScreen />}
+			<NavigationContainer >
+				{authenticatedUser ? <MainStack /> : <UnAuthenticatedStack />}
 			</NavigationContainer>
 		</>
 	);

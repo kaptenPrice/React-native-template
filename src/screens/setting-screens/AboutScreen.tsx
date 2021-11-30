@@ -1,44 +1,41 @@
 import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
-import AppButton from '../comp/AppButton';
-import { useAppTheme } from '../providers/ThemeProvider';
-import DrawerMenuIcon from '../comp/DrawerMenuIcon';
-import { EdgeInsets, useSafeAreaInsets } from 'react-native-safe-area-context';
 
-const HelpScreen = ({ navigation }) => {
+import AppButton from '../../comp/AppButton';
+import { useAppTheme } from '../../providers/ThemeProvider';
+import { ThemeType } from '../../types/types';
+import DrawerMenuIcon from '../../comp/DrawerMenuIcon';
+
+const AboutScreen = ({ navigation }) => {
 	const { appTheme } = useAppTheme();
-	const insets = useSafeAreaInsets();
+	const styles = makeStyles(appTheme.colors);
 
-	const styles = makeStyle(appTheme.colors, insets);
 	return (
 		<>
-		
 			<DrawerMenuIcon onPress={() => navigation.openDrawer()} />
-		
 			<View style={styles.container}>
-				<Text style={{ color: 'red' }}>Help</Text>
+				<Text style={styles.textStyle}>About</Text>
 				<AppButton
 					buttonStyle={styles.buttonStyle}
-					onPress={() => navigation.navigate('AboutScreen')}
+					onPress={() => navigation.navigate('HelpScreen')}
 					titleStyle={styles.titleStyle}
-					title="Go to About"
+					title="Goto Help"
 				/>
+				<AppButton buttonStyle={styles.buttonStyle} />
 			</View>
 		</>
 	);
 };
 
-export default HelpScreen;
+export default AboutScreen;
 
-const makeStyle = (colors: any, insets:EdgeInsets) =>
+const makeStyles = (colors: ThemeType['colors']) =>
 	StyleSheet.create({
 		container: {
-			paddingTop: insets.top,
-			paddingLeft: insets.left,
-			paddingBottom: insets.bottom,
 			flex: 1,
-			justifyContent: 'space-between',
 			alignItems: 'center',
+			justifyContent: 'space-evenly',
+			flexDirection: 'column',
 		},
 		textStyle: {
 			color: colors.text,

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, Button, Dimensions, BackHandler } from 'react-native';
 import { BarCodeScanner, BarCodeScannerResult } from 'expo-barcode-scanner';
 import BarcodeMask from 'react-native-barcode-mask';
-import AppButton from '../comp/AppButton';
+import AppButton from '../../comp/AppButton';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { Camera } from 'expo-camera';
 import { useIsFocused } from '@react-navigation/native';

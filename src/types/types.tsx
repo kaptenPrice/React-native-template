@@ -1,7 +1,7 @@
 import { NativeStackNavigationOptions } from "@react-navigation/native-stack";
 import { Dispatch, SetStateAction } from "react";
 import { NativeScreen } from "react-native-screens";
-import { EndPointType } from "../routes/helper/useFetch";
+import { EndPointType } from "../helper/useFetch";
 
 export type screenPropTypes = {
 	name: string;
@@ -35,3 +35,7 @@ export type UseFetchType = (
 	error?: any;
 }>;
 type RequestInit = Parameters<typeof fetch>[1];
+export type UseProfileType = {
+	act: String;
+	setAct: Dispatch<SetStateAction<String>>;
+};

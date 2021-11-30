@@ -1,8 +1,8 @@
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import HomeScreen from '../../screens/HomeScreen';
+import StartScreen from '../../screens/StartScreen';
 import DetailScreen from '../../screens/DetailScreen';
-import HelpScreen from '../../screens/HelpScreen';
+import HelpScreen from '../../screens/setting-screens/HelpScreen';
 import { screenPropTypes } from '../../types/types';
 const HomeStack = createNativeStackNavigator();
 
@@ -10,7 +10,7 @@ const HomeStackScreen = () => {
 	const screens: screenPropTypes[] = [
 		{
 			name: 'HomeScreen',
-			component: HomeScreen,
+			component: StartScreen,
 		},
 		{
 			name: 'DetailsScreen',

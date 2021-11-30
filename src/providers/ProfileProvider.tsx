@@ -11,6 +11,7 @@ export const UserData = createContext(null);
 
 const ProfileProvider = ({ children }: PropsWithChildren<any>) => {
 	const [authenticatedUser, setAuthenticatedUser] = useState(false);
+	
 	return (
 		<UserData.Provider value={{ authenticatedUser, setAuthenticatedUser }}>
 			{children}

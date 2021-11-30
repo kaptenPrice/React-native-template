@@ -1,4 +1,4 @@
-import { UseFetchType } from "../../types/types";
+import { UseFetchType } from "../types/types";
 
 export const useFetch: UseFetchType = async (endpoint, init) => {
 	let status = null;

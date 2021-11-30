@@ -7,6 +7,7 @@ import ThemeProvider, { useAppTheme } from './src/providers/ThemeProvider';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import { ThemeType} from "./src/types/types"
 import { StyleSheet } from 'react-native';
+import ActivityProvider from './src/providers/ActivityProvider';
 
 //@ts-ignore
 export default App = () => {
@@ -15,7 +16,9 @@ export default App = () => {
 			<AppearanceProvider>
 				<ThemeProvider>
 					<ProfileProvider>
+						{/* <ActivityProvider> */}
 							<Routing />
+							{/* </ActivityProvider> */}
 					</ProfileProvider>
 				</ThemeProvider>
 			</AppearanceProvider>

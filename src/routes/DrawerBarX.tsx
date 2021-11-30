@@ -1,4 +1,4 @@
-import {
+/*import {
 	createDrawerNavigator,
 	DrawerContentScrollView,
 	DrawerItem,
@@ -7,11 +7,11 @@ import {
 import React from 'react';
 import { useProfile } from '../providers/ProfileProvider';
 import { useAppTheme } from '../providers/ThemeProvider';
-import AboutScreen from '../screens/AboutScreen';
-import HelpScreen from '../screens/HelpScreen';
-import BottomTabBar from './BottomTabBar';
+import AboutScreen from '../screens/setting-screens/AboutScreen';
+import HelpScreen from '../screens/setting-screens/HelpScreen';
+import MainTabStack from './MainTabStack';
 
-const DrawerBar = () => {
+const DrawerBarX = () => {
 	const Drawer = createDrawerNavigator();
 	const { setAuthenticatedUser } = useProfile();
 	const handleLogout = (props) => {
@@ -33,11 +33,12 @@ const DrawerBar = () => {
 				);
 			}}
 		>
-			<Drawer.Screen name="MainScreens" component={BottomTabBar}  />
+			<Drawer.Screen name="MainScreens" component={MainTabStack}  />
 			<Drawer.Screen name="HelpScreen" component={HelpScreen} />
 			<Drawer.Screen name="AboutScreen" component={AboutScreen} />
 		</Drawer.Navigator>
 	);
 };
 
-export default DrawerBar;
+export default DrawerBarX;
+*/

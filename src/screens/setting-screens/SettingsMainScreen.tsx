@@ -1,11 +1,11 @@
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import React, { useEffect, useState } from 'react';
 import { StyleSheet, Text, View, Switch } from 'react-native';
-import AppButton from '../comp/AppButton';
-import { useAppTheme } from '../providers/ThemeProvider';
-import { ThemeType } from '../types/types';
+import AppButton from '../../comp/AppButton';
+import { useAppTheme } from '../../providers/ThemeProvider';
+import { ThemeType } from '../../types/types';
 
-const SettingsScreen = ({ navigation }: NativeStackScreenProps<any, any>) => {
+const SettingsMainScreen = ({ navigation }: NativeStackScreenProps<any, any>) => {
 	const { appTheme, setAppTheme } = useAppTheme();
 	const styles = makeStyle(appTheme.colors);
 	const [isEnabled, setIsEnabled] = useState(null);
@@ -19,6 +19,8 @@ const SettingsScreen = ({ navigation }: NativeStackScreenProps<any, any>) => {
 	return (
 		<View style={styles.container}>
 			<Text style={styles.textStyle}> SettingsScreen</Text>
+			<Text style={styles.textStyle}> Calender </Text>
+			<Text style={styles.textStyle}> About</Text>
 			<Switch
 				trackColor={{ false: '#FED326', true: '#006AA7' }}
 				thumbColor={isEnabled ? '#FECC00' : '#006AA7'}
@@ -26,12 +28,7 @@ const SettingsScreen = ({ navigation }: NativeStackScreenProps<any, any>) => {
 				onValueChange={toggleSwitch}
 				value={isEnabled}
 			/>
-			<AppButton
-				buttonStyle={styles.buttonStyle}
-				titleStyle={styles.titleStyle}
-				title="Go to Details"
-				onPress={() => navigation.navigate('DetailsScreen', { itemId: '' })}
-			/>
+
 			<AppButton
 				buttonStyle={styles.buttonStyle}
 				titleStyle={styles.titleStyle}
@@ -42,7 +39,7 @@ const SettingsScreen = ({ navigation }: NativeStackScreenProps<any, any>) => {
 	);
 };
 
-export default SettingsScreen;
+export default SettingsMainScreen;
 
 const makeStyle = (colors: ThemeType['colors']) =>
 	StyleSheet.create({

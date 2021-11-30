@@ -7,20 +7,15 @@ import { useAppTheme } from '../providers/ThemeProvider';
 import { ThemeType } from '../types/types';
 import DrawerMenuIcon from '../comp/DrawerMenuIcon';
 import { DrawerScreenProps } from '@react-navigation/drawer';
-import { useFetch } from '../routes/helper/useFetch';
+import { useFetch } from '../helper/useFetch';
+import { useActivity } from '../providers/ActivityProvider';
 
-const HomeScreen = ({
+const StartScreen = ({
 	navigation,
 }: NativeStackScreenProps<any, any> & DrawerScreenProps<any, any>) => {
 	const { appTheme } = useAppTheme();
 	const styles = makeStyle(appTheme.colors);
 
-const fetchData=async()=>{
-	const {data, status, error} = await useFetch("/login")
-	console.log(data,status, error)
-	//set your data and use it
-
-}
 	//USE TO SET screen options from outside of routing
 	/*	useLayoutEffect(() => {
 		navigation.setOptions({
@@ -45,25 +40,20 @@ const fetchData=async()=>{
 
 	return (
 		<>
-			<DrawerMenuIcon onPress={() => navigation.openDrawer()} />
+			{/* <DrawerMenuIcon onPress={() => navigation.openDrawer()} /> */}
 			<View style={styles.container}>
-				<Text style={styles.textStyle}>HomeScreen</Text>
+				<Text style={styles.textStyle}>START-SCREEN</Text>
 				<AppButton
 					buttonStyle={styles.buttonStyle}
-					onPress={() =>
-						navigation.navigate('DetailsScreen', {
-							itemId: 88,
-							otherParam: 'Watch her walk away... ',
-						})
-					}
+					onPress={() => navigation.navigate('ActivityScreen', {screen:"ActivityScreen"})}
 					titleStyle={styles.titleStyle}
-					title="Details"
+					title="ActivityScreen"
 				/>
 			</View>
 		</>
 	);
 };
-export default HomeScreen;
+export default StartScreen;
 
 const makeStyle = (colors: ThemeType['colors']) =>
 	StyleSheet.create({
