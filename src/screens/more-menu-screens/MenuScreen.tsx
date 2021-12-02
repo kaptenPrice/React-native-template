@@ -1,40 +1,41 @@
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import React from 'react';
-
-import { Button, Dimensions, StyleSheet, Text, View } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import AppButton from '../../comp/AppButton';
-import { useProfile } from '../../providers/ProfileProvider';
+import { View, Text, Dimensions, StyleSheet } from 'react-native';
+import AppButton from '../../components/AppButton';
 import { useAppTheme } from '../../providers/ThemeProvider';
 import { ThemeType } from '../../types/types';
 
-const SignInScreen = ({ navigation }) => {
+const MenuMainScreen = ({ navigation }: NativeStackScreenProps<any, any>) => {
 	const theme = useAppTheme();
 	const { width, height } = Dimensions.get('screen');
 	const styles = makeStyle(theme.appTheme.colors, width, height);
-	const { setAuthenticatedUser } = useProfile();
-
-
 	return (
-		<SafeAreaView style={styles.container}>
-			<Text style={{ color: 'red' }}>SignInScreen</Text>
+		<View>
+			<Text style={styles.container}>This is the main menu</Text>
 			<AppButton
-				title="LOGIN"
+				title="Personal trainer"
 				titleStyle={styles.buttonTitle}
 				buttonStyle={styles.buttonStyle}
-				onPress={() => setAuthenticatedUser(true)}
+				onPress={() => navigation.navigate('PTStack')}
 			/>
 			<AppButton
-				title="SIGN UP"
+				title="Profil"
 				titleStyle={styles.buttonTitle}
 				buttonStyle={styles.buttonStyle}
-				onPress={() => navigation.navigate('SignUp')}
+				onPress={() => navigation.navigate('UserProfileStack')}
 			/>
-		</SafeAreaView>
+			<AppButton
+				title="Settings"
+				titleStyle={styles.buttonTitle}
+				buttonStyle={styles.buttonStyle}
+				onPress={() => navigation.navigate('SettingsStack')}
+			/>
+	
+		</View>
 	);
 };
 
-export default SignInScreen;
-
+export default MenuMainScreen;
 const makeStyle = (colors: ThemeType['colors'], width: number, height: number) =>
 	StyleSheet.create({
 		container: {
@@ -44,7 +45,7 @@ const makeStyle = (colors: ThemeType['colors'], width: number, height: number) =
 			backgroundColor: colors.background,
 		},
 		buttonStyle: {
-			width: width * 0.2,
+			width: width * 0.5,
 			height: height * 0.05,
 			alignItems: 'center',
 			justifyContent: 'center',

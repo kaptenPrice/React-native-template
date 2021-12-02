@@ -1,7 +1,7 @@
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { screenPropTypes } from '../../types/types';
-import ActivityScreen from '../../screens/ActivityScreen';
+import ActivityScreen from '../../screens/activity-screens/ActivityScreen';
 import Filters from '../../screens/activity-screens/Filters';
 import ActivitiesFilter from '../../screens/activity-screens/ActivitiesFilter';
 import ClubsFilter from '../../screens/activity-screens/ClubsFilter';

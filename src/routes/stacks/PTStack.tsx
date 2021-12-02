@@ -11,7 +11,7 @@ import { screenPropTypes } from '../../types/types';
 const PTStack = () => {
 	const PTStack = createNativeStackNavigator();
 	const screens: screenPropTypes[] = [
-		{ name: 'PTList', component: PTListScreen },
+		{ name: 'PTList', component: PTListScreen, options:{headerShown:false} },
 		{ name: 'PTDetailScreen', component: PTDetailScreen },
 		{ name: 'PTFilterScreen', component: PTFilterScreen },
 		{ name: 'FilterByClubs', component: FilterByClubs },
@@ -19,11 +19,11 @@ const PTStack = () => {
 		{ name: 'FilterBySkills', component: FilterBySkills },
 	];
 
+
 	const mapScreens = () =>
 		screens.map(({ ...props }, index) => <PTStack.Screen key={index} {...props} />);
 
 	return <PTStack.Navigator>{mapScreens()}</PTStack.Navigator>;
-    
 };
 
 export default PTStack;

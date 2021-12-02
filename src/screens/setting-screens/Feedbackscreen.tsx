@@ -1,25 +1,24 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { Alert, StyleSheet, Text, View } from 'react-native';
 import React from 'react';
-
 import AppButton from '../../components/AppButton';
 import { useAppTheme } from '../../providers/ThemeProvider';
 import { ThemeType } from '../../types/types';
 import DrawerMenuIcon from '../../components/DrawerMenuIcon';
 
-const AboutScreen = ({ navigation }) => {
+const FeedbackScreen = ({ navigation }) => {
 	const { appTheme } = useAppTheme();
 	const styles = makeStyles(appTheme.colors);
 
 	return (
 		<>
-			<DrawerMenuIcon onPress={() => navigation.openDrawer()} />
+			{/* <DrawerMenuIcon onPress={() => navigation.openDrawer()} /> */}
 			<View style={styles.container}>
-				<Text style={styles.textStyle}>About</Text>
+				<Text style={styles.textStyle}>FeedBackScreen</Text>
 				<AppButton
 					buttonStyle={styles.buttonStyle}
-					onPress={() => alert("Naugthy boy")}
+					onPress={() => Alert.alert("Nice!","We will call you nextnextnext year to discuss it")}
 					titleStyle={styles.titleStyle}
-					title="About stuff"
+					title="FeedBack"
 				/>
 				<AppButton buttonStyle={styles.buttonStyle} />
 			</View>
@@ -27,7 +26,7 @@ const AboutScreen = ({ navigation }) => {
 	);
 };
 
-export default AboutScreen;
+export default FeedbackScreen;
 
 const makeStyles = (colors: ThemeType['colors']) =>
 	StyleSheet.create({

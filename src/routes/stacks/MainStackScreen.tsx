@@ -1,10 +1,7 @@
 import React from 'react';
-import { View, Text } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import MainTabStack from '../MainTabStack';
 import { screenPropTypes } from '../../types/types';
-import ActivityScreen from '../../screens/ActivityScreen';
-import WelnessOnlinePresentation from '../../screens/WelnessOnlinePresentation';
 import Feedback from '../../screens/main-screens/Feedback';
 
 const MainStack = () => {

@@ -1,10 +1,11 @@
-import { View, Text } from 'react-native';
 import React from 'react';
-
+import { View, Text } from 'react-native';
+//Edit profile stuff
 const UserSettingsScreen = () => {
 	return (
 		<View>
 			<Text>UserSettingsScreen</Text>
+			
 		</View>
 	);
 };

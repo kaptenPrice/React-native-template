@@ -1,8 +1,8 @@
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import StartScreen from '../../screens/StartScreen';
-import DetailScreen from '../../screens/DetailScreen';
-import HelpScreen from '../../screens/setting-screens/HelpScreen';
+import StartScreen from '../../screens/start-screen/StartScreen';
+import DetailScreen from '../../screens/TESTDetailScreen';
+import CalenderScreen from '../../screens/setting-screens/CalenderScreen';
 import { screenPropTypes } from '../../types/types';
 const HomeStack = createNativeStackNavigator();
 
@@ -16,7 +16,7 @@ const HomeStackScreen = () => {
 			name: 'DetailsScreen',
 			component: DetailScreen,
 		},
-		{ name: 'HelpScreen', component: HelpScreen },
+		{ name: 'HelpScreen', component: CalenderScreen },
 	];
 	
 	const mapScreens = () => {

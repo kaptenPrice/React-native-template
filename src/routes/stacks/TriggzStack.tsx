@@ -1,8 +1,8 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React from 'react';
-import DiscountsScreen from '../../screens/triggz-screen/DiscountsScreen';
-import RewardsScreen from '../../screens/triggz-screen/RewardsScreen';
-import TriggzMainScreen from '../../screens/triggz-screen/TriggzMainScreen';
+import DiscountsScreen from '../../screens/triggz-screens/DiscountsScreen';
+import RewardsScreen from '../../screens/triggz-screens/RewardsScreen';
+import TriggzMainScreen from '../../screens/triggz-screens/TriggzMainScreen';
 import { screenPropTypes } from '../../types/types';
 
 const TriggzStack = () => {

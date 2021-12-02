@@ -1,11 +1,11 @@
 import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
-import AppButton from '../../comp/AppButton';
+import AppButton from '../../components/AppButton';
 import { useAppTheme } from '../../providers/ThemeProvider';
-import DrawerMenuIcon from '../../comp/DrawerMenuIcon';
+import DrawerMenuIcon from '../../components/DrawerMenuIcon';
 import { EdgeInsets, useSafeAreaInsets } from 'react-native-safe-area-context';
 
-const HelpScreen = ({ navigation }) => {
+const CalenderScreen = ({ navigation }) => {
 	const { appTheme } = useAppTheme();
 	const insets = useSafeAreaInsets();
 
@@ -13,22 +13,23 @@ const HelpScreen = ({ navigation }) => {
 	return (
 		<>
 		
-			<DrawerMenuIcon onPress={() => navigation.openDrawer()} />
+			{/* <DrawerMenuIcon onPress={() => navigation.openDrawer()} /> */}
 		
 			<View style={styles.container}>
-				<Text style={{ color: 'red' }}>Help</Text>
-				<AppButton
+				<Text style={{ color: 'red' }}>Calender </Text>
+				<Text style={{ color: 'red' }}>Switch </Text>
+				{/* <AppButton
 					buttonStyle={styles.buttonStyle}
 					onPress={() => navigation.navigate('AboutScreen')}
 					titleStyle={styles.titleStyle}
 					title="Go to About"
-				/>
+				/> */}
 			</View>
 		</>
 	);
 };
 
-export default HelpScreen;
+export default CalenderScreen;
 
 const makeStyle = (colors: any, insets:EdgeInsets) =>
 	StyleSheet.create({

@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, Button } from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import AppButton from '../comp/AppButton';
+import AppButton from '../components/AppButton';
 import { useAppTheme } from '../providers/ThemeProvider';
 
 

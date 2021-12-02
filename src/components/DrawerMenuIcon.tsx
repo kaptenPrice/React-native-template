@@ -19,6 +19,9 @@ const DrawerMenuIcon = ({ onPress }) => {
 	);
 };
 
+
+
+
 export default DrawerMenuIcon;
 
 const makeStyle = (height: number, width: number) =>

@@ -3,18 +3,18 @@ import React from 'react';
 import { useAppTheme } from '../../providers/ThemeProvider';
 
 
-const SignUpScreen = () => {
+const NonMemberScreen = () => {
 	const { appTheme } = useAppTheme();
 	const styles = makeStyles(appTheme);
 
 	return (
 		<SafeAreaView style={styles.container}>
-			<Text style={styles.textStyle}>SignUp</Text>
+			<Text style={styles.textStyle}>NonMemberScreen</Text>
 		</SafeAreaView>
 	);
 };
 
-export default SignUpScreen;
+export default NonMemberScreen;
 
 const makeStyles = (colors: any) =>
 	StyleSheet.create({

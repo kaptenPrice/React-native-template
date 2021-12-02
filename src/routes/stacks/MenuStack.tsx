@@ -1,18 +1,18 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { View, Text } from 'react-native';
 import React from 'react';
 import { screenPropTypes } from '../../types/types';
-import MenuScreen from '../../screens/MenuScreen';
+import MenuMainScreen from '../../screens/more-menu-screens/MenuScreen';
 import PTStack from './PTStack';
-import UserProfileStack from '../../screens/user-profile/UserProfileStack';
+import UserProfileStack from './UserProfileStack';
+import SettingStack from './SettingsStack';
 
 const MenuStack = () => {
 	const MenuStack = createNativeStackNavigator();
 	const screens: screenPropTypes[] = [
-		//TODO RENAME TO MOREMENU
-		{ name: 'MenuScreen', component: MenuScreen }, //shows all available screeens and stacks eg. Menu
+		{ name: 'MenuMainScreen', component: MenuMainScreen },
 		{ name: 'PTStack', component: PTStack }, //Shows all pt screens
-		{ name: 'UserProfileStack', component: UserProfileStack }, //Shows profile mainScreen and profileSettings(tabBar right now)
+		{ name: 'UserProfileStack', component: UserProfileStack, options: { headerShown: false } }, //Shows profile mainScreen and profileSettings(tabBar right now)
+		{ name: 'SettingsStack', component: SettingStack, options: { headerShown: false } },
 	];
 	const mapScreens = () =>
 		screens.map(({ ...props }, index) => <MenuStack.Screen key={index} {...props} />);
